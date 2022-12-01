@@ -1,20 +1,14 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    if (radio.receivedPacket(RadioPacketProperty.SignalStrength) <= 52) {
+    if (radio.receivedPacket(RadioPacketProperty.SignalStrength) > -1000) {
         basic.showLeds(`
-            # . # . #
-            # . # . #
-            # . # . #
-            # . # . #
-            . # # # .
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
             `)
     } else {
-        basic.showLeds(`
-            # . . . .
-            # . . . .
-            # . . . .
-            # . . . .
-            # # # # #
-            `)
+        basic.clearScreen()
     }
 })
 radio.setGroup(1)
